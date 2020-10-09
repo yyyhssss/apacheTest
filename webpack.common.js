@@ -23,6 +23,7 @@ module.exports = {
             { test: /\.css$/, use: ['style-loader', 'css-loader'] },
             { test: /\.(jpg|jpeg|png|tif|gif)$/, use: ['url-loader?limit=8192'] },
             { test: /\.(woff|woff2|ttf|eot|otf)$/, use: ['file-loader'] },
+            { test: /\.vue$/, use: ['vue-loader'] },
         ]
     },
     optimization: {
