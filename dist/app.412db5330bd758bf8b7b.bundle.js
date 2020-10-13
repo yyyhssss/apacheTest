@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[3],{Vtdi:function(n,e,d){"use strict";d.r(e);e=d("LvDl");var i,o=d.n(e);document.body.appendChild(((i=document.createElement("div")).innerHTML=o.a.join(["Hello","webpack","new"]," "),i))}},[["Vtdi",0,1]]]);

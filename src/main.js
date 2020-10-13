@@ -1,20 +1,37 @@
-// import $ from 'jquery'
-import _ from 'lodash'
-// import Print from './print'
+import '../node_modules/bootstrap/dist/css/bootstrap.css';
+import '../node_modules/bootstrap/dist/js/bootstrap.js';
 
-// $('li:odd').css('backgroundColor', 'lightyellow');
-// $('li:even').css('backgroundColor', 'red');
+import Vue from 'vue';
+// import vueRouter from 'vue-router';
 
-function component() {
-    var element = document.createElement('div');
 
-    // Lodash, currently included via a script, is required for this line to work
-    // Lodash, now imported by this script
-    element.innerHTML = _.join(['Hello', 'webpack', 'new'], ' ');
-    // element.onclick = Print.bind(null, 'Hello webpack!');
-    
+$("#myDiv").css("padding-top", "50px");
+$("body").append("<div>hello world</div>");
 
-    return element;
-}
+// Vue.use(vueRouter);
 
-document.body.appendChild(component());
+import navBar from './js/navBar.vue';
+import comp1 from './js/App.vue';
+
+var vmNavBar = new Vue({
+    el: '#myNav',
+    // render: c => c(navBar),
+    // template: '<comp1/>',
+    components:{
+        navBar,
+        comp1
+    },
+    data: {
+        dropdownData: ['Action', 'Another action', 'third action', 'last action']
+    }
+})
+
+var vmDiv = new Vue({
+    el: '#myDiv',
+    // render: c => c(navBar),
+    // template: '<comp1/>',
+    components:{
+        comp1
+        // 'comp1' : '<h1>hhh2222</h1>'
+    }
+})
