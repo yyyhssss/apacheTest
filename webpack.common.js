@@ -33,7 +33,7 @@ module.exports = {
             { test: /\.(woff|woff2|ttf|eot|otf|svg)$/, use: ['file-loader'] },
             { test: /\.vue$/, use: ['vue-loader'] },
             // { test: /\.js$/,exclude: /(node_modules|bower_components)/,use: { loader: 'babel-loader', options: { presets: ['@babel/preset-env'] } } }
-            { test: /\.js$/,exclude: /(node_modules|bower_components)/,use: { loader: 'babel-loader'} }
+            { test: /\.js$/,exclude: /(node_modules|bower_components)/,use: 'babel-loader' }
         ]
     },
     resolve: {

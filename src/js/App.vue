@@ -1,5 +1,5 @@
 <template>
-	<div id="app">
+	<div id="comp1">
 		<h1>My Todo App!</h1>
 		<!-- <TodoList/>
 		<h1>hhh2222</h1> -->
@@ -35,5 +35,8 @@ export default {
 
 h1 {
 	text-align: center;
+}
+.main {
+	padding-top: 50px;
 }
 </style>

@@ -7,24 +7,17 @@
   <title>Document</title>
   <!-- <script src="main.js"></script> -->
   <!-- <script src="../dist/bundle.js"></script> -->
-  <!-- <script src="../node_modules/jquery/dist/jquery.min.js"></script> -->
-  <!-- <script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script> -->
-  <!-- <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css"> -->
-  <script src="../node_modules/vue/dist/vue.js"></script>
+  <!-- <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css"> -->
+  <!-- <script src="../node_modules/vue/dist/vue.js"></script>
+  <script src="../node_modules/vue-router/dist/vue-router.js"></script> -->
 </head>
 
 <body>
-  <header>
-    <div id="myNav">
-      <nav-bar :bardata='dropdownData'></nav-bar>
-    </div>
-  </header>
-  <div id="myDiv" class="myDiv">
-    <h1>hhh</h1>
-    <h1>hhh</h1>
-    <h1>hhh</h1>
-    <h1>hhh</h1>
-    <comp1></comp1>
+  <div id="app">
+    <nav-bar :bardata='dropdownData' :menus='menus'></nav-bar>
+    <router-view class="main"></router-view>
   </div>
 
   <!-- <script src="../dist/bundle.js"></script> -->
