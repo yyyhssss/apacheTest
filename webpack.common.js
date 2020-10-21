@@ -29,6 +29,7 @@ module.exports = {
     module: {
         rules: [
             { test: /\.css$/, use: ['style-loader', 'css-loader'] },
+            { test: /\.less$/, use: ['style-loader', 'css-loader', 'less-loader'] },
             { test: /\.(jpg|jpeg|png|tif|gif)$/, use: ['url-loader?limit=8192'] },
             { test: /\.(woff|woff2|ttf|eot|otf|svg)$/, use: ['file-loader'] },
             { test: /\.vue$/, use: ['vue-loader'] },

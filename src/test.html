@@ -1,68 +1,113 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Dynamic Components Example</title>
-    <script src="https://unpkg.com/vue"></script>
-    <style>
-      .tab-button {
-        padding: 6px 10px;
-        border-top-left-radius: 3px;
-        border-top-right-radius: 3px;
-        border: 1px solid #ccc;
-        cursor: pointer;
-        background: #f0f0f0;
-        margin-bottom: -1px;
-        margin-right: -1px;
-      }
-      .tab-button:hover {
-        background: #e0e0e0;
-      }
-      .tab-button.active {
-        background: #e0e0e0;
-      }
-      .tab {
-        border: 1px solid #ccc;
-        padding: 10px;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="dynamic-component-demo" class="demo">
-      <button
-        v-for="tab in tabs"
-        v-bind:key="tab"
-        v-bind:class="['tab-button', { active: currentTab === tab }]"
-        v-on:click="currentTab = tab"
-      >
-        {{ tab }}
-      </button>
 
-      <component v-bind:is="currentTabComponent" class="tab"></component>
-    </div>
+<head>
+  <title>Dynamic Components Example</title>
+  <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+  <!-- <script src="../node_modules/bootstrap/dist/css/bootstrap.css"></script> -->
+  <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="../node_modules/vue/dist/vue.min.js"></script>
+  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+  <style>
+    .tab-button {
+      padding: 6px 10px;
+      border-top-left-radius: 3px;
+      border-top-right-radius: 3px;
+      border: 1px solid #ccc;
+      cursor: pointer;
+      background: #f0f0f0;
+      margin-bottom: -1px;
+      margin-right: -1px;
+    }
 
-    <script>
-      Vue.component("tab-home", {
-        template: "<div>Home component</div>"
-      });
-      Vue.component("tab-posts", {
-        template: "<div>Posts component</div>"
-      });
-      Vue.component("tab-archive", {
-        template: "<div>Archive component</div>"
-      });
+    .tab-button:hover {
+      background: #e0e0e0;
+    }
 
-      new Vue({
-        el: "#dynamic-component-demo",
-        data: {
-          currentTab: "Home",
-          tabs: ["Home", "Posts", "Archive"]
-        },
-        computed: {
-          currentTabComponent: function() {
-            return "tab-" + this.currentTab.toLowerCase();
-          }
+    .tab-button.active {
+      background: #e0e0e0;
+    }
+
+    .tab {
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="dynamic-component-demo" class="demo">
+    <button v-for="tab in tabs" v-bind:key="tab" v-bind:class="['tab-button', { active: currentTab === tab }]"
+      v-on:click="currentTab = tab">
+      {{ tab }}
+    </button>
+
+    <component v-bind:is="currentTabComponent" class="tab"></component>
+  </div>
+
+  <div id="app">
+    <table class="table table-bordered table-striped table-hover">
+      <tr>
+        <th>Order No.</th>
+        <th>Part No.</th>
+        <th>Analysis Type</th>
+        <th>Customer</th>
+        <th>PSP No.</th>
+        <th>Orderer</th>
+      </tr>
+      <tr v-for="item in lines" :key="item.id">
+        <td>{{ item.OrderNo}}</td>
+        <td>{{ item.PartNo}}</td>
+        <td>{{ item.AnalysisType}}</td>
+        <td>{{ item.Customer}}</td>
+        <td>{{ item.PSPNo}}</td>
+        <td>{{ item.Orderer}}</td>
+      </tr>
+    </table>
+  </div>
+  <div>
+    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+  </div>
+
+  <script>
+    Vue.component("tab-home", {
+      template: "<div>Home component</div>"
+    });
+    Vue.component("tab-posts", {
+      template: "<div>Posts component</div>"
+    });
+    Vue.component("tab-archive", {
+      template: "<div>Archive component</div>"
+    });
+
+    new Vue({
+      el: "#dynamic-component-demo",
+      data: {
+        currentTab: "Home",
+        tabs: ["Home", "Posts", "Archive"]
+      },
+      computed: {
+        currentTabComponent: function () {
+          return "tab-" + this.currentTab.toLowerCase();
         }
-      });
-    </script>
-  </body>
+      }
+    });
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        dropdownData: ['Action', 'Another action', 'third action', 'last action'],
+        menus: [
+          { name: 'My Order', route: '/myorder' },
+          { name: 'New Order', route: '/neworder' },
+          { name: 'FE Capacity', route: '/fecapacity' },
+          { name: 'Signin', route: '/signin' }],
+        lines: [
+          { OrderNo: "000001", PartNo: '377000012001', AnalysisType: "stiffness", Customer: "BMW", PSPNo: "61000", Orderer: "Xuan" },
+          { OrderNo: "000002", PartNo: '377000012002', AnalysisType: "stress", Customer: "Daimler", PSPNo: "61001", Orderer: "Xuan" },
+        ]
+      },
+    })
+  </script>
+</body>
+
 </html>

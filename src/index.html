@@ -7,11 +7,11 @@
   <title>Document</title>
   <!-- <script src="main.js"></script> -->
   <!-- <script src="../dist/bundle.js"></script> -->
-  <!-- <script src="../node_modules/jquery/dist/jquery.min.js"></script>
-  <script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
-  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css"> -->
-  <!-- <script src="../node_modules/vue/dist/vue.js"></script>
-  <script src="../node_modules/vue-router/dist/vue-router.js"></script> -->
+  <!-- <script src="../node_modules/jquery/dist/jquery.min.js"></script> -->
+  <!-- <script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script> -->
+  <!-- <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css"> -->
+  <!-- <script src="../node_modules/vue/dist/vue.js"></script> -->
+  <!-- <script src="../node_modules/vue-router/dist/vue-router.js"></script> -->
 </head>
 
 <body>
@@ -20,7 +20,26 @@
     <!-- <nav-bar></nav-bar> -->
     <router-view class="main"></router-view>
   </div>
-
+  <div id="bpp">
+    <table class="table table-bordered table-striped table-hover">
+      <tr>
+        <th>Order No.</th>
+        <th>Part No.</th>
+        <th>Analysis Type</th>
+        <th>Customer</th>
+        <th>PSP No.</th>
+        <th>Orderer</th>
+      </tr>
+      <tr v-for="item in lines" :key="item.id">
+        <td>{{ item.OrderNo}}</td>
+        <td>{{ item.PartNo}}</td>
+        <td>{{ item.AnalysisType}}</td>
+        <td>{{ item.Customer}}</td>
+        <td>{{ item.PSPNo}}</td>
+        <td>{{ item.Orderer}}</td>
+      </tr>
+    </table>
+  </div>
   <!-- <script src="../dist/bundle.js"></script> -->
   <!-- <script src="main.js"></script> -->
 </body>

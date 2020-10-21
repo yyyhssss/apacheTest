@@ -22,19 +22,16 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <!-- <li><router-link to="/myorder">My Order</router-link></li>
-            <li><router-link to="/neworder">New Order</router-link></li>
-            <li><router-link to="/fecapacity">FE Capacity</router-link></li>
-            <li class="active"><router-link to="/signin">Signin</router-link></li> -->
-            <li 
-            v-for="item in menus" 
-            :key="item"
-            :class="{ active: currentItem === item.name }" 
-            @click="currentItem = item.name">
-            <router-link :to=item.route>{{ item.name }}</router-link>
+            <li
+              v-for="item in menus"
+              :key="item.id"
+              :class="{ active: currentItem === item.name }"
+              @click="currentItem = item.name"
+            >
+              <router-link :to="item.route">{{ item.name }}</router-link>
             </li>
           </ul>
-          
+
           <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
               <a
@@ -62,7 +59,9 @@
             <div class="form-group">
               <input type="text" class="form-control" placeholder="Search" />
             </div>
-            <button type="submit" class="btn btn-default">Submit</button>
+            <button type="submit" class="btn btn-default" @click="submit">
+              Submit
+            </button>
           </form>
         </div>
         <!-- /.navbar-collapse -->
@@ -77,7 +76,14 @@
 export default {
   props: ["bardata", "menus"],
   data: function () {
-      return {currentItem: 'Signin'}
+    return { currentItem: "Signin" };
+  },
+  methods: {
+    submit: function () {
+      $.get("demo_test.php", function (data, status) {
+        alert("数据: " + data + "\n状态: " + status);
+      });
+    },
   },
   // computed: {}
 };
