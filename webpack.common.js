@@ -9,10 +9,10 @@ module.exports = {
         app: "./src/main.js",
         // another: "./src/another.js",
     },
-    output: {
-        path: path.join(__dirname, 'dist'),
-        filename: this.mode === 'production' ? '[name].[chunkhash].bundle.js' : ' '
-    },
+    // output: {
+    //     path: path.join(__dirname, 'dist'),
+    //     filename: this.mode === 'production' ? '[name].[chunkhash].bundle.js' : ' '
+    // },
     plugins: [
         new HtmlWebpackPlugin({
             template: './src/index.html',
@@ -33,12 +33,13 @@ module.exports = {
             { test: /\.(woff|woff2|ttf|eot|otf|svg)$/, use: ['file-loader'] },
             { test: /\.vue$/, use: ['vue-loader'] },
             // { test: /\.js$/,exclude: /(node_modules|bower_components)/,use: { loader: 'babel-loader', options: { presets: ['@babel/preset-env'] } } }
-            { test: /\.js$/,exclude: /(node_modules|bower_components)/,use: 'babel-loader' }
+            { test: /\.js$/,exclude: /(node_modules|bower_components)/,use: ['babel-loader'] }
         ]
     },
     resolve: {
         alias: {
-          'vue$': 'vue/dist/vue.js'
+          'vue$': 'vue/dist/vue.js',
+          'vue-router$': 'vue-router/dist/vue-router.js'
         }
       },    
     optimization: {
