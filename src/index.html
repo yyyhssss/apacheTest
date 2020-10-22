@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="never">
   <title>Document</title>
   <!-- <script src="main.js"></script> -->
   <!-- <script src="../dist/bundle.js"></script> -->
@@ -20,26 +21,8 @@
     <!-- <nav-bar></nav-bar> -->
     <router-view class="main"></router-view>
   </div>
-  <div id="bpp">
-    <table class="table table-bordered table-striped table-hover">
-      <tr>
-        <th>Order No.</th>
-        <th>Part No.</th>
-        <th>Analysis Type</th>
-        <th>Customer</th>
-        <th>PSP No.</th>
-        <th>Orderer</th>
-      </tr>
-      <tr v-for="item in lines" :key="item.id">
-        <td>{{ item.OrderNo}}</td>
-        <td>{{ item.PartNo}}</td>
-        <td>{{ item.AnalysisType}}</td>
-        <td>{{ item.Customer}}</td>
-        <td>{{ item.PSPNo}}</td>
-        <td>{{ item.Orderer}}</td>
-      </tr>
-    </table>
-  </div>
+  <!-- <div id="bpp">
+  </div> -->
   <!-- <script src="../dist/bundle.js"></script> -->
   <!-- <script src="main.js"></script> -->
 </body>

@@ -1,22 +1,24 @@
 <template>
   <div>
     <table class="table table-bordered table-striped table-hover">
-      <tr>
-        <th>Order No.</th>
-        <th>Part No.</th>
-        <th>Analysis Type</th>
-        <th>Customer</th>
-        <th>PSP No.</th>
-        <th>Orderer</th>
-      </tr>
-      <tr v-for="item in lines" :key="item.id">
-        <td>{{ item.OrderNo }}</td>
-        <td>{{ item.PartNo }}</td>
-        <td>{{ item.AnalysisType }}</td>
-        <td>{{ item.Customer }}</td>
-        <td>{{ item.PSPNo }}</td>
-        <td>{{ item.Orderer }}</td>
-      </tr>
+      <tbody>
+        <tr>
+          <th>Order No.</th>
+          <th>Part No.</th>
+          <th>Analysis Type</th>
+          <th>Customer</th>
+          <th>PSP No.</th>
+          <th>Orderer</th>
+        </tr>
+        <tr v-for="item in lines" :key="item.id">
+          <td>{{ item.OrderNo }}</td>
+          <td>{{ item.PartNo }}</td>
+          <td>{{ item.AnalysisType }}</td>
+          <td>{{ item.Customer }}</td>
+          <td>{{ item.PSPNo }}</td>
+          <td>{{ item.Orderer }}</td>
+        </tr>
+      </tbody>
     </table>
     <div>
       <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
@@ -57,7 +59,7 @@ export default {
 </script>
 
 <style scoped>
-@import '../../node_modules/bootstrap/dist/css/bootstrap.css';
+/* @import "../../node_modules/bootstrap/dist/css/bootstrap.css"; */
 .main {
   padding-top: 50px;
 }

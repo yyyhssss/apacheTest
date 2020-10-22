@@ -66,12 +66,12 @@ var vm = new Vue({
     router
 })
 
-var vmBpp = new Vue({
-    el: '#bpp',
-    data: {
-      lines: [
-        { OrderNo: "000001", PartNo: '377000012001', AnalysisType: "stiffness", Customer: "BMW", PSPNo: "61000", Orderer: "Xuan" },
-        { OrderNo: "000002", PartNo: '377000012002', AnalysisType: "stress", Customer: "Daimler", PSPNo: "61001", Orderer: "Xuan" },
-      ]
-    },
-  })
+// var vmBpp = new Vue({
+//     el: '#bpp',
+//     data: {
+//       lines: [
+//         { OrderNo: "000001", PartNo: '377000012001', AnalysisType: "stiffness", Customer: "BMW", PSPNo: "61000", Orderer: "Xuan" },
+//         { OrderNo: "000002", PartNo: '377000012002', AnalysisType: "stress", Customer: "Daimler", PSPNo: "61001", Orderer: "Xuan" },
+//       ]
+//     },
+//   })

@@ -80,7 +80,7 @@ export default {
   },
   methods: {
     submit: function () {
-      $.get("demo_test.php", function (data, status) {
+      $.get("demo_test.php?name=junxi&age=30", function (data, status) {
         alert("数据: " + data + "\n状态: " + status);
       });
     },
