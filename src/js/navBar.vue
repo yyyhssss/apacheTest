@@ -80,9 +80,15 @@ export default {
   },
   methods: {
     submit: function () {
-      $.get("demo_test.php?name=junxi&age=30", function (data, status) {
+      $.get("/getUserOrderData", function (data, status) {
         alert("数据: " + data + "\n状态: " + status);
       });
+      // axios.get('/getUserOrderData').then(function(res){
+      //       console.log(res.body);
+      //       // this.myorder = res.body;
+      //   },function(err){
+      //       // this.myorder = "server error";
+      //   })
     },
   },
   // computed: {}

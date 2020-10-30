@@ -3,6 +3,7 @@ import '../node_modules/bootstrap/dist/js/bootstrap.js';
 
 import Vue from 'vue';
 import VueRouter from 'vue-router';
+const axios = require('axios');
 
 
 // $("#myDiv").css("padding-top", "50px");
@@ -16,29 +17,6 @@ import myorder from './js/myOrder.vue';
 import fecapacity from './js/FECapacity.vue';
 import signin from './js/Signin.vue';
 import neworder from './js/newOrder.vue';
-
-// var vmNavBar = new Vue({
-//     el: '#myNav',
-//     // render: c => c(navBar),
-//     // template: '<comp1/>',
-//     components:{
-//         navBar,
-//         comp1
-//     },
-//     data: {
-//         dropdownData: ['Action', 'Another action', 'third action', 'last action']
-//     }
-// })
-
-// var vmDiv = new Vue({
-//     el: '#myDiv',
-//     // render: c => c(navBar),
-//     // template: '<comp1/>',
-//     components:{
-//         comp1
-//         // 'comp1' : '<h1>hhh2222</h1>'
-//     }
-// })
 
 var router = new VueRouter({
     routes: [
@@ -61,9 +39,19 @@ var vm = new Vue({
             {name:'My Order', route: '/myorder'},
             {name:'New Order', route: '/neworder'},
             {name:'FE Capacity', route: '/fecapacity'},
-            {name:'Signin', route: '/signin'}]
+            {name:'Signin', route: '/signin'}],
+        myorder: "",
     },
-    router
+    router,
+    beforeMount: function(){
+        console.log("signin:  " + this.menus[3].route);
+        axios.get('/getUserOrderData').then(function(res){
+            console.log(res.body);
+            // this.myorder = res.body;
+        },function(err){
+            this.myorder = "server error";
+        })
+    }
 })
 
 // var vmBpp = new Vue({

@@ -23,6 +23,9 @@
     <div>
       <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
     </div>
+    <div>
+      {{ myorder }}
+    </div>
   </div>
 </template>
 
@@ -33,6 +36,7 @@ export default {
   // components: {
   // 	TodoList
   // },
+  props: ['myorder'],
   data: function () {
     return {
       lines: [
